@@ -9,10 +9,10 @@ if awk -F, '{ print $8 }' download/*/SampleSheet.csv | grep -i ITS ; then
 fi
 
 hundo annotate \
-  --jobs 1 \
+  --jobs 4 \
   --out-dir output_hundo/ \
   --author "Pacifica Dispatcher K8S Hundo" \
-  --threads 1 \
+  --threads 4 \
   --database-dir output_fastq_multx/reference_databases \
   -fa /opt/qc_references/adapters.fa.gz \
   -fc /opt/qc_references/phix174.fa.gz \
