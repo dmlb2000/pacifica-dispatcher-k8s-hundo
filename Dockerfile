@@ -1,4 +1,4 @@
-from pacifica/dispatcher-k8s:v0.2.2
+from pacifica/dispatcher-k8s:v0.2.3
 
 run apt-get update && \
     apt-get -y install software-properties-common && \
