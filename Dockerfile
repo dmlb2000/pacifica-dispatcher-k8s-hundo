@@ -1,5 +1,6 @@
-from pacifica/dispatcher-k8s:v0.2.5
+from python:3.8
 
+run mkdir /data /scripts.d /etc/pacifica-cli
 run apt-get update && \
     apt-get -y install software-properties-common vim && \
     apt-add-repository 'deb http://security.debian.org/debian-security stretch/updates main' && \
@@ -31,6 +32,7 @@ run git clone https://github.com/brwnj/fastq-multx /opt/fastq-multx
 workdir /opt/fastq-multx
 run make
 workdir /data
+run pip install git+https://github.com/pacifica/pacifica-dispatcher-k8s.git@v0.2.5 future pacifica-cli
 copy uploader.json /data/uploader.json
 copy run-fastq-multx.sh /opt/run-fastq-multx.sh
 copy run-hundo.sh /opt/run-hundo.sh
@@ -38,3 +40,5 @@ copy run.sh /scripts.d/run
 run mkdir /etc/pacifica-dispatcher-k8s
 copy config.ini /etc/pacifica-dispatcher-k8s/config.ini
 run chmod 0755 /scripts.d/run /opt/run-fastq-multx.sh /opt/run-hundo.sh
+expose 8069
+entrypoint pacifica-dispatcher-k8s
