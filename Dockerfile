@@ -1,7 +1,7 @@
 from pacifica/dispatcher-k8s:v0.2.4
 
 run apt-get update && \
-    apt-get -y install software-properties-common && \
+    apt-get -y install software-properties-common vim && \
     apt-add-repository 'deb http://security.debian.org/debian-security stretch/updates main' && \
     apt-get update && \
     apt-get install -y openjdk-8-jdk zip unzip libblas3 liblapack3 libblas-dev liblapack-dev gfortran

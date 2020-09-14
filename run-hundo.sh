@@ -4,7 +4,7 @@ export PATH=/opt/bbmap:/opt/ncbi-blast-2.9.0+/bin:$PATH
 ITS_ARGS=""
 # this tries to pull the Description column which should be
 # either 16s or its
-if awk -F, '{ print $8 }' download/SampleSheet.csv | grep -i ITS ; then
+if awk -F, '{ print $8 }' download/*/SampleSheet.csv | grep -i ITS ; then
   ITS_ARGS="-rd unite"
 fi
 
