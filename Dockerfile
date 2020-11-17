@@ -7,7 +7,7 @@ run apt-get update && \
     apt-get update && \
     apt-get install -y openjdk-8-jdk zip unzip libblas3 liblapack3 libblas-dev liblapack-dev gfortran
 run pip install numpy==1.16.2 cython
-run pip install hundo click pyyaml 'snakemake>=5.1.4' pandas==0.24.2 biopython==1.74 scipy==1.3.1 plotly relatively 'biom-format>=2.1.0'
+run pip install hundo click pyyaml 'snakemake>=5.1.4,<5.27' pandas==0.24.2 biopython==1.74 scipy==1.3.1 plotly relatively 'biom-format>=2.1.0'
 run pip freeze
 run curl -L https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.9.0/ncbi-blast-2.9.0+-x64-linux.tar.gz | tar -C /opt -xzf -
 run git clone https://github.com/GSLBiotech/mafft.git /opt/mafft
